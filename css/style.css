@@ -360,6 +360,7 @@ body {
   display: inline-block;
   position: relative;
   cursor: pointer;
+  z-index: 2;
 }
 
 .menu__icon::before {
@@ -429,6 +430,7 @@ body {
   height: 100%;
   background: #000000;
   opacity: 0.4;
+  z-index: 1;
 }
 
 .banner-main {
@@ -817,12 +819,11 @@ body {
 }
 
 .form__check {
-  padding-left: 35px;
   position: relative;
   cursor: pointer;
 }
 
-.form__check::before {
+.form__check-span::before {
   content: "";
   position: absolute;
   width: 20px;
@@ -835,7 +836,7 @@ body {
           transform: translate(0, -50%);
 }
 
-.form__check::after {
+.form__check-span::after {
   content: "x";
   position: absolute;
   top: 50%;
@@ -843,19 +844,22 @@ body {
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
+  opacity: 0;
+  color: black;
 }
 
 .form__check-span {
   color: #FFFFFF;
+  position: relative;
+  padding-left: 35px;
 }
 
 .form__check-inp {
   display: none;
 }
 
-.form__check-inp:checked .form__check::after {
-  opacity: 0;
-  scale: 0;
+.form__check-inp:checked + .form__check-span::after {
+  opacity: 1;
 }
 
 .form__inp::-webkit-input-placeholder {
